@@ -1,0 +1,28 @@
+{
+  "name": "contrastcove",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private Discord color contrast checks with explicit result sharing",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "biome check .",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check": "npm run lint && npm test && node scripts/check-supply.mjs",
+    "setup": "node scripts/setup.mjs",
+    "register": "node --env-file-if-exists=.env dist/register.js",
+    "start": "node --env-file-if-exists=.env dist/main.js"
+  },
+  "dependencies": {
+    "discord.js": "14.27.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}
